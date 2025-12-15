@@ -1,0 +1,28 @@
+@use '../../../styles/themes/variables' as *;
+@use '../../../styles/themes/mixins' as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: $z-sticky;
+  box-shadow: $shadow-sm;
+  transition: background-color 0.3s ease;
+}
+
+:host-context(.dark-theme) .header {
+  background-color: #1e1e1e !important;
+  
+  ::ng-deep .mat-toolbar {
+    background-color: #1e1e1e !important;
+  }
+}
+
+.app-name {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-medium;
+  margin-left: $spacing-sm;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}

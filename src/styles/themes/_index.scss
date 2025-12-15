@@ -1,0 +1,5 @@
+// Exportar todas las variables y mixins
+@forward 'variables';
+@forward 'mixins' with (
+  $primary: null // Evitar conflicto, mixins usa variables de forma interna
+);

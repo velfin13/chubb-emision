@@ -15,7 +15,7 @@ interface MenuItem {
   selector: 'app-sidebar',
   imports: [MatListModule, MatIconModule, MatExpansionModule, RouterLink, RouterLinkActive],
   templateUrl: './sidebar.html',
-  styleUrl: './sidebar.css',
+  styleUrl: './sidebar.scss',
 })
 export class Sidebar {
   menuItems: MenuItem[] = [

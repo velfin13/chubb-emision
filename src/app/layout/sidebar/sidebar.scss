@@ -1,0 +1,188 @@
+@use '../../../styles/themes/variables' as *;
+@use '../../../styles/themes/mixins' as *;
+
+.sidebar-content {
+  height: 100%;
+  @include flex-column;
+  background-color: var(--bg-sidebar);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.user-name {
+  font-weight: $font-weight-medium;
+  font-size: $font-size-base;
+  color: var(--text-primary);
+}
+
+.user-section {
+  padding: $spacing-lg $spacing-md;
+  border-bottom: 1px solid var(--border-color);
+  @include flex-center;
+  justify-content: flex-start;
+  gap: $spacing-sm;
+}
+
+.user-avatar {
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+  color: var(--text-secondary);
+}
+
+.user-info {
+  @include flex-column;
+}
+
+.user-name {
+  font-weight: $font-weight-medium;
+  font-size: $font-size-base;
+}
+
+.user-role {
+  font-size: $font-size-sm;
+  color: var(--text-secondary);
+}
+
+mat-nav-list {
+  padding-top: $spacing-sm;
+  
+  .mdc-list-item__primary-text {
+    color: var(--text-primary) !important;
+  }
+}
+
+.nav-item {
+  margin: $spacing-xs $spacing-sm;
+  border-radius: $radius-sm;
+  @include transition(background-color);
+  color: var(--text-primary) !important;
+  
+  mat-icon {
+    color: var(--text-secondary) !important;
+  }
+  
+  span {
+    color: var(--text-primary) !important;
+  }
+}
+
+.nav-item.active {
+  background-color: rgba(63, 81, 181, 0.12);
+  color: var(--color-primary) !important;
+  
+  mat-icon {
+    color: var(--color-primary) !important;
+  }
+}
+
+.nav-item:hover {
+  background-color: rgba(128, 128, 128, 0.1);
+}
+
+/* Estilos para menús expandibles */
+.menu-expansion {
+  box-shadow: none !important;
+  background: transparent !important;
+  margin: $spacing-xs $spacing-sm !important;
+  padding: 0 !important;
+  border-radius: $radius-sm !important;
+}
+
+.menu-expansion::before {
+  display: none !important;
+}
+
+.menu-expansion::ng-deep .mat-expansion-panel-body {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.menu-expansion::ng-deep .mat-expansion-panel-spacing {
+  margin: 0 !important;
+}
+
+.nav-item-header {
+  padding: 0 $spacing-sm 0 0 !important;
+  height: 48px !important;
+  margin: 0 !important;
+  border-radius: $radius-sm !important;
+  @include transition(background-color);
+}
+
+.nav-item-header::ng-deep .mat-content {
+  padding: 0 $spacing-md !important;
+  margin: 0 !important;
+}
+
+.nav-item-header::ng-deep .mat-expansion-indicator {
+  margin-right: $spacing-sm !important;
+}
+
+.nav-item-header::ng-deep .mat-expansion-indicator::after {
+  color: var(--text-primary) !important;
+  border-color: var(--text-primary) !important;
+}
+
+.nav-item-header::ng-deep .mat-expansion-indicator svg {
+  fill: var(--text-primary) !important;
+}
+
+.nav-item-header {
+  color: var(--text-primary) !important;
+  
+  ::ng-deep .mat-expansion-panel-header-title {
+    color: var(--text-primary) !important;
+  }
+}
+
+.nav-item-header:hover {
+  background-color: rgba(128, 128, 128, 0.1) !important;
+}
+
+.nav-item-title {
+  @include flex-center;
+  justify-content: flex-start !important;
+  gap: $spacing-md !important;
+  font-size: $font-size-base !important;
+  font-weight: $font-weight-medium !important;
+  line-height: normal !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: var(--text-primary) !important;
+}
+
+.nav-item-title mat-icon {
+  margin: 0 !important;
+  font-size: 24px !important;
+  width: 24px !important;
+  height: 24px !important;
+  color: var(--text-secondary) !important;
+}
+
+/* Submenús */
+.nav-subitem {
+  margin: $spacing-xs $spacing-sm !important;
+  padding: $spacing-xs $spacing-md !important;
+  height: 32px !important;
+  min-height: 32px !important;
+  border-radius: $radius-sm;
+  font-size: $font-size-sm;
+  @include transition(background-color);
+}
+
+.nav-subitem mat-icon {
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
+  margin-right: $spacing-sm;
+}
+
+.nav-subitem.active {
+  background-color: rgba(63, 81, 181, 0.08);
+  color: var(--color-primary);
+}
+
+.nav-subitem:hover {
+  background-color: rgba(128, 128, 128, 0.1);
+}

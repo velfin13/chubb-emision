@@ -1,0 +1,88 @@
+@use '../../../styles/themes/variables' as *;
+@use '../../../styles/themes/mixins' as *;
+
+.home-container {
+  width: 100%;
+  padding: $spacing-lg;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: $font-size-xxl;
+  margin-bottom: $spacing-sm;
+  color: var(--text-primary);
+  font-weight: $font-weight-medium;
+}
+
+@include mobile {
+  .home-container {
+    padding: $spacing-md;
+  }
+}
+
+p {
+  color: var(--text-secondary);
+  margin-bottom: $spacing-xl;
+  font-size: $font-size-md;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-lg;
+  margin-top: $spacing-lg;
+  width: 100%;
+}
+
+mat-card {
+  cursor: pointer;
+  @include transition(transform, box-shadow);
+  width: 100%;
+  @include hover-lift;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+mat-card-title {
+  color: var(--text-primary) !important;
+}
+
+mat-card-subtitle {
+  color: var(--text-secondary) !important;
+}
+
+mat-card-content p {
+  color: var(--text-secondary);
+}
+
+mat-icon[mat-card-avatar] {
+  background-color: var(--color-primary);
+  color: var(--bg-primary);
+  padding: $spacing-sm;
+  border-radius: $radius-full;
+}
+
+@include large-desktop {
+  .cards-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@include mobile {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+}

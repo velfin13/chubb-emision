@@ -10,7 +10,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
   selector: 'app-main-layout',
   imports: [MatSidenavModule, Header, Sidebar, Footer, RouterOutlet],
   templateUrl: './main-layout.html',
-  styleUrl: './main-layout.css',
+  styleUrl: './main-layout.scss',
 })
 export class MainLayout {
   isMobile = false;

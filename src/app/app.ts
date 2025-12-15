@@ -5,7 +5,7 @@ import { MainLayout } from './layout/main-layout/main-layout';
   selector: 'app-root',
   imports: [MainLayout],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.scss'
 })
 export class App {
   protected title = 'chubb.emision';

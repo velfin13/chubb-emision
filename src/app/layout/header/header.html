@@ -4,6 +4,9 @@
   </button>
   <span class="app-name">Chubb Emisión</span>
   <span class="spacer"></span>
+  <button mat-icon-button (click)="toggleTheme()" [title]="isDarkMode ? 'Modo claro' : 'Modo oscuro'">
+    <mat-icon>{{ isDarkMode ? 'light_mode' : 'dark_mode' }}</mat-icon>
+  </button>
   <button mat-icon-button>
     <mat-icon>notifications</mat-icon>
   </button>

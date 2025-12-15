@@ -1,0 +1,44 @@
+// Tema Light
+$light-theme: (
+  primary: #3f51b5,
+  primary-light: #7986cb,
+  primary-dark: #303f9f,
+  
+  bg-primary: #ffffff,
+  bg-secondary: #f5f5f5,
+  bg-tertiary: #fafafa,
+  bg-sidebar: #ffffff,
+  bg-content: #f5f5f5,
+  
+  text-primary: rgba(0, 0, 0, 0.87),
+  text-secondary: rgba(0, 0, 0, 0.54),
+  text-disabled: rgba(0, 0, 0, 0.38),
+  
+  border-color: rgba(0, 0, 0, 0.12),
+  divider-color: rgba(0, 0, 0, 0.12),
+);
+
+// Tema Dark
+$dark-theme: (
+  primary: #7986cb,
+  primary-light: #aab6fe,
+  primary-dark: #49599a,
+  
+  bg-primary: #1e1e1e,
+  bg-secondary: #252525,
+  bg-tertiary: #2d2d2d,
+  bg-sidebar: #1e1e1e,
+  bg-content: #121212,
+  
+  text-primary: rgba(255, 255, 255, 0.87),
+  text-secondary: rgba(255, 255, 255, 0.60),
+  text-disabled: rgba(255, 255, 255, 0.38),
+  
+  border-color: rgba(255, 255, 255, 0.12),
+  divider-color: rgba(255, 255, 255, 0.12),
+);
+
+// Función para obtener valor del tema
+@function theme-color($key, $theme-map) {
+  @return map-get($theme-map, $key);
+}

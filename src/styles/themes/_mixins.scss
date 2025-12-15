@@ -1,0 +1,103 @@
+@use 'variables' as *;
+
+// Media query mixins
+@mixin mobile {
+  @media (max-width: $breakpoint-xs) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: $breakpoint-xs) and (max-width: $breakpoint-sm) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $breakpoint-sm) {
+    @content;
+  }
+}
+
+@mixin large-desktop {
+  @media (min-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+// Flexbox mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Card mixin
+@mixin card($padding: $spacing-md) {
+  background: $bg-primary;
+  border-radius: $radius-md;
+  box-shadow: $shadow-sm;
+  padding: $padding;
+}
+
+// Transition mixin
+@mixin transition($properties...) {
+  transition: $properties $transition-normal ease-in-out;
+}
+
+// Hover effect
+@mixin hover-lift {
+  transition: transform $transition-fast, box-shadow $transition-fast;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
+}
+
+// Scrollbar styling
+@mixin custom-scrollbar($width: 8px, $track-color: $bg-secondary, $thumb-color: rgba(0,0,0,0.2)) {
+  &::-webkit-scrollbar {
+    width: $width;
+    height: $width;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $track-color;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $thumb-color;
+    border-radius: $radius-sm;
+
+    &:hover {
+      background: rgba(0,0,0,0.3);
+    }
+  }
+}
+
+// Truncate text
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Line clamp
+@mixin line-clamp($lines: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
