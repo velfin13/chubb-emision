@@ -1,0 +1,41 @@
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  width: 100%;
+}
+
+.sidenav-container {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.sidenav {
+  width: 250px;
+  box-shadow: 3px 0 6px rgba(0,0,0,.1);
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.content-wrapper {
+  flex: 1;
+  overflow-y: auto;
+  width: 100%;
+  background-color: #f5f5f5;
+}
+
+@media (max-width: 768px) {
+  .content-wrapper {
+    /* Sin padding, cada página maneja el suyo */
+  }
+  
+  .sidenav {
+    width: 280px;
+  }
+}

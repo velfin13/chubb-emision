@@ -1,0 +1,44 @@
+<div class="sidebar-content">
+  <div class="user-section">
+    <mat-icon class="user-avatar">account_circle</mat-icon>
+    <div class="user-info">
+      <div class="user-name">Usuario</div>
+      <div class="user-role">Administrador</div>
+    </div>
+  </div>
+
+  <mat-nav-list>
+    @for (item of menuItems; track item.label) {
+      @if (item.children) {
+        <!-- Menú con submenús -->
+        <mat-expansion-panel class="menu-expansion">
+          <mat-expansion-panel-header class="nav-item-header">
+            <mat-panel-title class="nav-item-title">
+              <mat-icon>{{ item.icon }}</mat-icon>
+              <span>{{ item.label }}</span>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          
+          @for (child of item.children; track child.route) {
+            <a mat-list-item 
+               [routerLink]="child.route" 
+               routerLinkActive="active"
+               class="nav-item nav-subitem">
+              <mat-icon matListItemIcon>{{ child.icon }}</mat-icon>
+              <span matListItemTitle>{{ child.label }}</span>
+            </a>
+          }
+        </mat-expansion-panel>
+      } @else {
+        <!-- Menú simple sin submenús -->
+        <a mat-list-item 
+           [routerLink]="item.route" 
+           routerLinkActive="active"
+           class="nav-item">
+          <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+          <span matListItemTitle>{{ item.label }}</span>
+        </a>
+      }
+    }
+  </mat-nav-list>
+</div>

@@ -1,0 +1,139 @@
+.sidebar-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-section {
+  padding: 24px 16px;
+  border-bottom: 1px solid rgba(0,0,0,.12);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-avatar {
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+  color: #666;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.user-role {
+  font-size: 12px;
+  color: #666;
+}
+
+mat-nav-list {
+  padding-top: 8px;
+}
+
+.nav-item {
+  margin: 4px 8px;
+  border-radius: 4px;
+}
+
+.nav-item.active {
+  background-color: rgba(63, 81, 181, 0.12);
+  color: #3f51b5;
+}
+
+.nav-item:hover {
+  background-color: rgba(0,0,0,.04);
+}
+
+/* Estilos para menús expandibles */
+.menu-expansion {
+  box-shadow: none !important;
+  background: transparent !important;
+  margin: 4px 8px !important;
+  padding: 0 !important;
+  border-radius: 4px !important;
+}
+
+.menu-expansion::before {
+  display: none !important;
+}
+
+.menu-expansion::ng-deep .mat-expansion-panel-body {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.menu-expansion::ng-deep .mat-expansion-panel-spacing {
+  margin: 0 !important;
+}
+
+.nav-item-header {
+  padding: 0 !important;
+  height: 48px !important;
+  margin: 0 !important;
+  border-radius: 4px !important;
+  transition: background-color 0.2s !important;
+}
+
+.nav-item-header::ng-deep .mat-content {
+  padding: 0 16px !important;
+  margin: 0 !important;
+}
+
+.nav-item-header:hover {
+  background-color: rgba(0,0,0,.04) !important;
+}
+
+.nav-item-title {
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: normal !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: rgba(0, 0, 0, 0.87) !important;
+}
+
+.nav-item-title mat-icon {
+  margin: 0 !important;
+  font-size: 24px !important;
+  width: 24px !important;
+  height: 24px !important;
+  color: rgba(0, 0, 0, 0.54) !important;
+}
+
+/* Submenús */
+.nav-subitem {
+  margin: 2px 8px !important;
+  padding: 4px 16px !important;
+  height: 32px !important;
+  min-height: 32px !important;
+  border-radius: 4px;
+  font-size: 13px;
+  transition: background-color 0.2s;
+}
+
+.nav-subitem mat-icon {
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+.nav-subitem.active {
+  background-color: rgba(63, 81, 181, 0.08);
+  color: #3f51b5;
+}
+
+.nav-subitem:hover {
+  background-color: rgba(0,0,0,.04);
+}
