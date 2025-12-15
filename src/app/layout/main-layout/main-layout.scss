@@ -12,6 +12,7 @@
   flex: 1;
   display: flex;
   overflow: hidden;
+  width: 100%;
 }
 
 .sidenav {
@@ -22,14 +23,22 @@
 .main-content {
   @include flex-column;
   overflow: hidden;
+  flex: 1;
+  width: 100%;
 }
 
 .content-wrapper {
   flex: 1;
   overflow-y: auto;
   width: 100%;
+  height: 100%;
   background-color: var(--bg-content);
   @include custom-scrollbar();
+  
+  > * {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 @include mobile {

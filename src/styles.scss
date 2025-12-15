@@ -7,12 +7,19 @@
   --color-primary: #{$primary};
   --color-primary-light: #{$primary-light};
   --color-primary-dark: #{$primary-dark};
+  --color-accent: #{$accent};
+  --color-error: #{$error};
+  --color-warning: #{$warning};
+  --color-success: #{$success};
   
   --bg-primary: #{$bg-primary};
   --bg-secondary: #{$bg-secondary};
   --bg-tertiary: #{$bg-tertiary};
   --bg-sidebar: #{$bg-sidebar};
   --bg-content: #{$bg-content};
+  --bg-input: #{$bg-primary};
+  --bg-card: #{$bg-primary};
+  --bg-hover: rgba(0, 0, 0, 0.04);
   
   --text-primary: #{$text-primary};
   --text-secondary: #{$text-secondary};
@@ -26,12 +33,19 @@
   --color-primary: #7986cb;
   --color-primary-light: #aab6fe;
   --color-primary-dark: #49599a;
+  --color-accent: #ff79b0;
+  --color-error: #f44336;
+  --color-warning: #ffb74d;
+  --color-success: #81c784;
   
   --bg-primary: #2d2d2d;
   --bg-secondary: #1e1e1e;
   --bg-tertiary: #252525;
   --bg-sidebar: #252525;
   --bg-content: #1a1a1a;
+  --bg-input: #3a3a3a;
+  --bg-card: #2d2d2d;
+  --bg-hover: rgba(255, 255, 255, 0.08);
   
   --text-primary: rgba(255, 255, 255, 0.95);
   --text-secondary: rgba(255, 255, 255, 0.70);
@@ -63,6 +77,16 @@ body {
 /* Custom scrollbar global */
 * {
   @include custom-scrollbar();
+}
+
+/* Material Card - Sin restricciones de ancho */
+mat-card, .mat-mdc-card {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+.mat-stepper-horizontal {
+  max-width: none !important;
 }
 
 /* Material components dark mode */

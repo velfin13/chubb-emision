@@ -1,0 +1,259 @@
+<div class="crear-emision-container">
+  <mat-card class="form-card">
+    <mat-card-header>
+      <mat-card-title>
+        <mat-icon>description</mat-icon>
+        Nueva Emisión
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-stepper linear #stepper>
+        
+        <!-- Paso 1: Datos del Asegurado -->
+        <mat-step [stepControl]="datosAseguradoForm" label="Datos del Asegurado">
+          <form [formGroup]="datosAseguradoForm" class="step-form">
+            <h3>Información Personal</h3>
+            
+            <div class="form-row">
+              <mat-form-field appearance="outline">
+                <mat-label>Tipo de Documento</mat-label>
+                <mat-select formControlName="tipoDocumento">
+                  @for (tipo of tiposDocumento; track tipo.value) {
+                    <mat-option [value]="tipo.value">{{ tipo.label }}</mat-option>
+                  }
+                </mat-select>
+                <mat-error>Este campo es requerido</mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Número de Documento</mat-label>
+                <input matInput formControlName="numeroDocumento" placeholder="12345678">
+                <mat-error>Ingrese un documento válido (mínimo 8 caracteres)</mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="form-row">
+              <mat-form-field appearance="outline">
+                <mat-label>Nombres</mat-label>
+                <input matInput formControlName="nombres" placeholder="Juan Carlos">
+                <mat-error>Este campo es requerido</mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Apellidos</mat-label>
+                <input matInput formControlName="apellidos" placeholder="Pérez García">
+                <mat-error>Este campo es requerido</mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="form-row">
+              <mat-form-field appearance="outline">
+                <mat-label>Fecha de Nacimiento</mat-label>
+                <input matInput [matDatepicker]="picker1" formControlName="fechaNacimiento">
+                <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+                <mat-error>Este campo es requerido</mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Teléfono</mat-label>
+                <input matInput formControlName="telefono" placeholder="987654321">
+                <mat-error>Este campo es requerido</mat-error>
+              </mat-form-field>
+            </div>
+
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Email</mat-label>
+              <input matInput type="email" formControlName="email" placeholder="correo@ejemplo.com">
+              <mat-error>Ingrese un email válido</mat-error>
+            </mat-form-field>
+
+            <h3>Dirección (Opcional)</h3>
+
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Dirección</mat-label>
+              <input matInput formControlName="direccion" placeholder="Av. Principal 123">
+            </mat-form-field>
+
+            <div class="form-row">
+              <mat-form-field appearance="outline">
+                <mat-label>Ciudad</mat-label>
+                <input matInput formControlName="ciudad" placeholder="Lima">
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Código Postal</mat-label>
+                <input matInput formControlName="codigoPostal" placeholder="15001">
+              </mat-form-field>
+            </div>
+
+            <div class="step-actions">
+              <button mat-raised-button color="primary" matStepperNext>Siguiente</button>
+            </div>
+          </form>
+        </mat-step>
+
+        <!-- Paso 2: Datos de la Póliza -->
+        <mat-step [stepControl]="datosPolizaForm" label="Datos de la Póliza">
+          <form [formGroup]="datosPolizaForm" class="step-form">
+            <h3>Información de la Póliza</h3>
+
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Tipo de Póliza</mat-label>
+              <mat-select formControlName="tipoPoliza">
+                @for (tipo of tiposPoliza; track tipo.value) {
+                  <mat-option [value]="tipo.value">{{ tipo.label }}</mat-option>
+                }
+              </mat-select>
+              <mat-error>Este campo es requerido</mat-error>
+            </mat-form-field>
+
+            <div class="form-row">
+              <mat-form-field appearance="outline">
+                <mat-label>Fecha de Inicio</mat-label>
+                <input matInput [matDatepicker]="picker2" formControlName="fechaInicio">
+                <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+                <mat-error>Este campo es requerido</mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Duración (meses)</mat-label>
+                <input matInput type="number" formControlName="duracion" min="1">
+                <mat-error>Ingrese una duración válida (mínimo 1 mes)</mat-error>
+              </mat-form-field>
+            </div>
+
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Monto Asegurado</mat-label>
+              <input matInput type="number" formControlName="montoAsegurado" min="1000">
+              <mat-icon matIconPrefix>attach_money</mat-icon>
+              <mat-error>Ingrese un monto válido (mínimo $1,000)</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Observaciones (Opcional)</mat-label>
+              <textarea matInput formControlName="observaciones" rows="4" 
+                        placeholder="Información adicional sobre la póliza"></textarea>
+            </mat-form-field>
+
+            <div class="step-actions">
+              <button mat-button matStepperPrevious>Atrás</button>
+              <button mat-raised-button color="primary" matStepperNext>Siguiente</button>
+            </div>
+          </form>
+        </mat-step>
+
+        <!-- Paso 3: Cobertura -->
+        <mat-step [stepControl]="coberturaForm" label="Cobertura">
+          <form [formGroup]="coberturaForm" class="step-form">
+            <h3>Seleccione su Cobertura</h3>
+
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Tipo de Cobertura</mat-label>
+              <mat-select formControlName="cobertura">
+                @for (cob of coberturas; track cob.value) {
+                  <mat-option [value]="cob.value">
+                    {{ cob.label }} - ${{ cob.precio }}/mes
+                  </mat-option>
+                }
+              </mat-select>
+              <mat-error>Este campo es requerido</mat-error>
+            </mat-form-field>
+
+            <h3>Coberturas Adicionales (Opcional)</h3>
+
+            <div class="coberturas-adicionales">
+              <mat-checkbox formControlName="coberturaAdicional">
+                Cobertura Adicional por Accidentes (+$30/mes)
+              </mat-checkbox>
+              <mat-checkbox formControlName="asistenciaVial">
+                Asistencia Vial 24/7 (+$20/mes)
+              </mat-checkbox>
+              <mat-checkbox formControlName="proteccionJuridica">
+                Protección Jurídica (+$15/mes)
+              </mat-checkbox>
+            </div>
+
+            @if (coberturaForm.get('cobertura')?.value) {
+              <div class="resumen-precio">
+                <h3>Prima Mensual Estimada</h3>
+                <div class="precio-total">
+                  ${{ calcularPrimaTotal() }}
+                </div>
+              </div>
+            }
+
+            <div class="step-actions">
+              <button mat-button matStepperPrevious>Atrás</button>
+              <button mat-raised-button color="primary" matStepperNext>Siguiente</button>
+            </div>
+          </form>
+        </mat-step>
+
+        <!-- Paso 4: Beneficiarios -->
+        <mat-step [stepControl]="beneficiariosForm" label="Beneficiarios" [optional]="true">
+          <form [formGroup]="beneficiariosForm" class="step-form">
+            <h3>Beneficiarios (Opcional)</h3>
+            <p class="step-description">Puede agregar beneficiarios ahora o más adelante</p>
+
+            <h4>Beneficiario Principal</h4>
+            <div class="form-row">
+              <mat-form-field appearance="outline">
+                <mat-label>Nombre Completo</mat-label>
+                <input matInput formControlName="nombreBeneficiario1">
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Parentesco</mat-label>
+                <input matInput formControlName="parentescoBeneficiario1" placeholder="Ej: Cónyuge">
+              </mat-form-field>
+            </div>
+
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Porcentaje</mat-label>
+              <input matInput type="number" formControlName="porcentajeBeneficiario1" min="0" max="100">
+              <mat-icon matIconSuffix>percent</mat-icon>
+            </mat-form-field>
+
+            <h4>Beneficiario Secundario (Opcional)</h4>
+            <div class="form-row">
+              <mat-form-field appearance="outline">
+                <mat-label>Nombre Completo</mat-label>
+                <input matInput formControlName="nombreBeneficiario2">
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Parentesco</mat-label>
+                <input matInput formControlName="parentescoBeneficiario2" placeholder="Ej: Hijo/a">
+              </mat-form-field>
+            </div>
+
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Porcentaje</mat-label>
+              <input matInput type="number" formControlName="porcentajeBeneficiario2" min="0" max="100">
+              <mat-icon matIconSuffix>percent</mat-icon>
+            </mat-form-field>
+
+            <div class="step-actions">
+              <button mat-button matStepperPrevious>Atrás</button>
+              <button mat-raised-button color="accent" (click)="onSubmit()">
+                <mat-icon>check_circle</mat-icon>
+                Crear Emisión
+              </button>
+            </div>
+          </form>
+        </mat-step>
+
+      </mat-stepper>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-button (click)="onCancel()">
+        <mat-icon>cancel</mat-icon>
+        Cancelar
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -1,0 +1,118 @@
+@use '../../../../../styles/themes/variables' as *;
+@use '../../../../../styles/themes/mixins' as *;
+
+.lista-emisiones-container {
+  padding: $spacing-lg;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  @include mobile {
+    padding: $spacing-md;
+  }
+}
+
+.header-section {
+  @include flex-center;
+  justify-content: space-between;
+  margin-bottom: $spacing-lg;
+
+  @include mobile {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-md;
+  }
+
+  h1 {
+    @include flex-center;
+    gap: $spacing-sm;
+    font-size: $font-size-xxl;
+    color: var(--text-primary);
+    margin: 0;
+
+    mat-icon {
+      color: var(--color-primary);
+      font-size: 32px;
+      width: 32px;
+      height: 32px;
+    }
+  }
+}
+
+.table-card {
+  background-color: var(--bg-card);
+  box-shadow: $shadow-md;
+  border-radius: $radius-md;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.emisiones-table {
+  width: 100%;
+  background-color: transparent;
+
+  th {
+    background-color: var(--bg-sidebar);
+    color: var(--text-primary);
+    font-weight: $font-weight-semibold;
+    font-size: $font-size-sm;
+    text-transform: uppercase;
+    padding: $spacing-md;
+  }
+
+  td {
+    color: var(--text-primary);
+    padding: $spacing-md;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .table-row {
+    @include transition(background-color);
+
+    &:hover {
+      background-color: var(--bg-hover);
+    }
+  }
+
+  .prima-column {
+    font-weight: $font-weight-semibold;
+    color: var(--color-accent);
+  }
+}
+
+mat-chip {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $radius-full;
+
+  &.estado-activa {
+    background-color: rgba($success, 0.1);
+    color: $success;
+  }
+
+  &.estado-pendiente {
+    background-color: rgba($warning, 0.1);
+    color: $warning;
+  }
+
+  &.estado-cancelada {
+    background-color: rgba($error, 0.1);
+    color: $error;
+  }
+}
+
+.acciones-buttons {
+  display: flex;
+  gap: $spacing-xs;
+
+  button {
+    color: var(--text-secondary);
+    @include transition(color);
+
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+}
