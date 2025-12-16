@@ -6,6 +6,7 @@
   width: 100% !important;
   height: 100%;
   margin: 0;
+  background-color: var(--bg-primary) !important;
 
   @include mobile {
     padding: 0;
@@ -13,7 +14,7 @@
 }
 
 .form-card {
-  background-color: var(--bg-card);
+  background-color: var(--bg-primary) !important;
   color: var(--text-primary);
   height: 100%;
   width: 100%;
@@ -44,6 +45,7 @@
   mat-card-content {
     padding: 0 !important;
     max-width: none !important;
+    background-color: var(--bg-primary) !important;
   }
 
   mat-card-title {
@@ -64,9 +66,10 @@
   width: 100%;
   max-width: none !important;
   box-sizing: border-box;
+  background-color: var(--bg-primary) !important;
 
   h3 {
-    color: var(--text-primary);
+    color: var(--text-primary) !important;
     margin: $spacing-lg 0 $spacing-md 0;
     font-size: $font-size-lg;
     font-weight: $font-weight-medium;
@@ -110,21 +113,69 @@ mat-form-field {
     }
 
     .mat-mdc-text-field-wrapper {
-      background-color: var(--bg-input);
+      background-color: var(--bg-input) !important;
+    }
+
+    .mdc-text-field {
+      background-color: var(--bg-input) !important;
+    }
+
+    .mdc-text-field--filled {
+      background-color: var(--bg-input) !important;
     }
 
     .mat-mdc-form-field-label,
-    .mat-mdc-select-value {
+    .mat-mdc-select-value,
+    .mdc-floating-label {
       color: var(--text-primary) !important;
     }
 
     input,
-    textarea {
+    textarea,
+    .mat-mdc-input-element {
       color: var(--text-primary) !important;
+      caret-color: var(--text-primary) !important;
     }
 
     .mat-mdc-form-field-error {
       color: var(--color-error) !important;
+    }
+
+    .mdc-line-ripple::before,
+    .mdc-line-ripple::after {
+      border-bottom-color: var(--border-color) !important;
+    }
+
+    .mat-mdc-form-field-bottom-align::before {
+      background-color: var(--border-color) !important;
+    }
+
+    .mdc-notched-outline__leading,
+    .mdc-notched-outline__notch,
+    .mdc-notched-outline__trailing {
+      border-color: var(--border-color) !important;
+    }
+
+    mat-icon {
+      color: var(--text-secondary) !important;
+    }
+
+    .mat-datepicker-toggle {
+      color: var(--text-secondary) !important;
+    }
+
+    .mat-mdc-icon-button {
+      color: var(--text-secondary) !important;
+    }
+
+    .mat-mdc-select-arrow,
+    .mat-mdc-select-arrow svg {
+      color: var(--text-secondary) !important;
+      fill: var(--text-secondary) !important;
+    }
+
+    .mat-mdc-select-trigger {
+      color: var(--text-primary) !important;
     }
   }
 }
@@ -185,7 +236,7 @@ mat-card-actions {
 // Estilos del Stepper
 ::ng-deep {
   .mat-stepper-horizontal {
-    background-color: transparent;
+    background-color: var(--bg-primary) !important;
     width: 100%;
     padding: 0 !important;
     max-width: none !important;
@@ -195,15 +246,22 @@ mat-card-actions {
     padding: 0 !important;
     max-width: none !important;
     width: 100% !important;
+    background-color: var(--bg-primary) !important;
   }
 
   .mat-horizontal-stepper-content {
     max-width: none !important;
     width: 100% !important;
+    background-color: var(--bg-primary) !important;
   }
 
   .mat-stepper-horizontal-line {
     display: none !important;
+  }
+
+  .mdc-card,
+  .mat-mdc-card {
+    background-color: var(--bg-primary) !important;
   }
 
   .mat-step-header {
